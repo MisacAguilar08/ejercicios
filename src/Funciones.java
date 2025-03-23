@@ -51,6 +51,10 @@ public class Funciones {
     }
 
     public void sumaPares(int limite){
-
+        int suma = 0;
+        for (int i = 0; i <= limite ; i+=2) {
+            suma += i;
+        }
+        System.out.println(suma);
     }
 }

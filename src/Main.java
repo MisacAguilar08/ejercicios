@@ -11,5 +11,6 @@ public class Main {
         System.out.println(pi.isPositivo(0));
         pi.diaSemana(2);
         pi.isVocal('o');
+        pi.sumaPares(10);
     }
 }
