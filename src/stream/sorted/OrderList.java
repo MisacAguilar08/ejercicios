@@ -1,4 +1,4 @@
-package stream.order;
+package stream.sorted;
 
 import java.util.Arrays;
 import java.util.List;

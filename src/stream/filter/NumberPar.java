@@ -1,4 +1,4 @@
-package stream.pares_impar;
+package stream.filter;
 
 import java.util.Arrays;
 import java.util.Comparator;
