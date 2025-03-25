@@ -31,5 +31,45 @@ public class Student {
         this.name = name;
     }
 
+    public int getAge() {
+        return age;
+    }
 
+    public String getSex() {
+        return sex;
+    }
+
+    public double getAvg() {
+        return avg;
+    }
+
+    public String getShift() {
+        return shift;
+    }
+
+    public boolean isScholarship() {
+        return scholarship;
+    }
+
+    public boolean isForeign() {
+        return isForeign;
+    }
+
+    public String getSemestre() {
+        return semestre;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", sex='" + sex + '\'' +
+                ", avg=" + avg +
+                ", shift='" + shift + '\'' +
+                ", scholarship=" + scholarship +
+                ", isForeign=" + isForeign +
+                ", semestre='" + semestre + '\'' +
+                '}';
+    }
 }
