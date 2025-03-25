@@ -1,15 +1,13 @@
-
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
-public class ConcatStringAnimal {
+public class GroupLengthAnimal {
     public static void main(String[] args) {
         List<String> animals = Arrays.asList( "Dog", "Cat", "Cow", "Sneak");
 
-//        String group = String.join(",", animals);
-        String group = animals.stream().collect(Collectors.joining(","));
-        System.out.println("group = " + group);
-
+        Map<Integer, List<String>> map =animals.stream().collect(Collectors.groupingBy(String::length));
+        System.out.println(map);
     }
 }
