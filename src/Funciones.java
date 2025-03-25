@@ -57,4 +57,26 @@ public class Funciones {
         }
         System.out.println(suma);
     }
+
+    public void impNumInvertidos(int lim_sup, int lim_inferior){
+        if(lim_inferior>lim_sup){
+            throw new IllegalArgumentException("El límite inferior debe ser menor o igual que el límite superior");
+        }
+
+        for(int i = lim_sup; i >= lim_inferior; i--) {
+            System.out.println("i = " + i);
+        }
+    }
+
+    public void tablaMultiplicar(){
+        tabla:
+        for (int i = 1; i <= 10; i++) {
+
+
+            for (int j = 0; j <= 10; j++) {
+                System.out.println(i +" * "+j +" = "+(i*j));
+            }
+            System.out.println();
+        }
+    }
 }
