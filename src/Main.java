@@ -13,6 +13,9 @@ public class Main {
 //        pi.isVocal('o');
 //        pi.sumaPares(10);
 //        pi.impNumInvertidos(100,200);
-        pi.tablaMultiplicar();
+//        pi.tablaMultiplicar();
+//        pi.triangulo(2);
+//        pi.triangulo(2);
+        pi.trianguloSpace(5);
     }
 }

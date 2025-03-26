@@ -69,12 +69,31 @@ public class Funciones {
     }
 
     public void tablaMultiplicar(){
-        tabla:
         for (int i = 1; i <= 10; i++) {
-
-
             for (int j = 0; j <= 10; j++) {
-                System.out.println(i +" * "+j +" = "+(i*j));
+                System.out.println(i + " * " + j + " = " + (i * j));
+            }
+            System.out.println();
+        }
+    }
+
+    public void triangulo(int nivel){
+        for (int i = 0; i <= nivel; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+
+    public void trianguloSpace(int nvl){
+        for (int i = 0; i <= nvl ; i++) {
+
+            for (int j = 0; j <= nvl -i; j++) {
+                System.out.print(" ");
+            }
+            for (int y = 1; y <=i; y++) {
+                System.out.print("*"+" ");
             }
             System.out.println();
         }
