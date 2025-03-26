@@ -2,7 +2,6 @@ package stream.stream_student;
 
 import stream.Objects.Student;
 
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -36,11 +35,11 @@ public class StreamStudent {
 
 //      Estudiante masculino de mayor edad.
         System.out.println("==========Estudiante masculino de mayor edad.==========");
-        list.stream().filter(x -> x.getSex().equals("M")).max((x,y) -> x.getAge() -y.getAge())
+        list.stream().filter(x -> x.getSex().equals("M")).max(Comparator.comparingInt(Student::getAge))
                 .ifPresent(System.out::println);
 //      Estudiante femenino de menor edad.
         System.out.println("==========Estudiante femenino de menor edad.==========");
-        list.stream().filter(x-> x.getSex().equals("F")).min((x,y) -> x.getAge() - y.getAge())
+        list.stream().filter(x-> x.getSex().equals("F")).min(Comparator.comparingInt(Student::getAge))
                 .ifPresent(System.out::println);
 //      Estudiantes de segundo semestre.
         System.out.println("==========Estudiantes de segundo semestre.==========");
