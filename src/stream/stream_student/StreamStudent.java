@@ -128,5 +128,64 @@ public class StreamStudent {
                         .equals("third")).filter(student -> student.getAvg() >7.0).count();
 
         System.out.println(c);
+
+        System.out.println("Listar los nombre en orden alfabético de los estudiantes extranjeros con promedio " +
+                "mayor a 8.0 del turno matutino.");
+
+        list.stream()
+                .filter(Student::isForeign)
+                .sorted(Comparator.comparing(Student::getName))
+                .filter(s-> s.getAvg() > 8.0)
+                .filter(s-> s.getShift().equals("Morning"))
+                .map(Student::getName)
+                .forEach(System.out::println);
+
+
+        System.out.println("Obtener los 2 mejores promedios de estudiantes femeninas no extranjeras de segundo " +
+                "semestre del turno vespertino.");
+
+        list.stream()
+                .filter(s-> s.getSex().equals("F"))
+                .filter(student -> student.getSemestre().equals("second"))
+                .filter(student -> !student.isForeign())
+                .filter(student -> student.getShift().equals("Afternoon"))
+                .map(student -> (int)student.getAvg())
+                .sorted((x,y) -> y-x).limit(2).forEach(System.out::println);
+
+        System.out.println("Calcular el promedio de los 3 mejores promedio de alumnos masculinos mayores de 20 años " +
+                "extranjeros pertenecientes al turno matutino. ");
+
+        list.stream()
+                .filter(student -> student.getSex().equals("M"))
+                .filter(student -> student.getAge() > 20)
+                .filter(Student::isForeign)
+                .filter(student -> student.getShift().equals("Morning"))
+                .map(student -> (int)student.getAvg())
+                .sorted( (x,y) -> y -x)
+                .limit(3)
+                .mapToInt(x -> x).average().ifPresent(System.out::println);
+
+        System.out.println("Mostrar los estudiantes becados del turno vespertino de segundo semestre.");
+        list.stream()
+                .filter(Student::isScholarship)
+                .filter(student -> student.getShift().equals("Afternoon"))
+                .filter(student -> student.getSemestre().equals("second")).forEach(System.out::println);
+
+        System.out.println("Mostrar los nombres de los estudiantes masculinos extranjeros del turno matutino y " +
+                "de segundo semestre con promedio impar.");
+
+        list.stream().
+                filter(student -> student.getSex().equals("M"))
+                .filter(Student::isForeign)
+                .filter(student -> student.getShift().equals("Morning"))
+                .filter(student -> student.getSemestre().equals("second"))
+                .filter(student -> student.getAvg() %2 != 0)
+                .map(Student::getName).forEach(System.out::println);
+
+        System.out.println("Mostrar los estudiantes de nombre Isabella mayores a 18 años.");
+
+        list.stream()
+                .filter(student -> student.getName().equals("Isabella"))
+                .filter(student -> student.getAge() >18).forEach(System.out::println);
 }
 }
