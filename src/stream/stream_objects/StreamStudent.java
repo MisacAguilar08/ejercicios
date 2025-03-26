@@ -1,4 +1,4 @@
-package stream.stream_student;
+package stream.stream_objects;
 
 import stream.Objects.Student;
 
