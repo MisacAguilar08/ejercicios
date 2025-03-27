@@ -175,4 +175,66 @@ public class Funciones {
 
         System.out.println("factorial = " + factorial);
     }
+
+    public void verificarMayor(int primer, int segundo){
+        if((primer > 10 && primer <20) || (segundo >= 30 && segundo <=40)){
+            System.out.println("El primer o el  segundo valor cumplen con las siguinetes reglas" +
+                    "el primer número es mayor a 10 y menor a 20, o si el segundo número es mayor o igual a 30 y " +
+                    "menor o igual a 40");
+        }
+    }
+
+    public void validarEdadPrestamo(int edad, double sueldo) {
+        boolean acceptance = (edad >= 18 && edad <= 65) && sueldo > 100;
+        if (acceptance) {
+            System.out.println("Es apto para un prestamo");
+        } else {
+            System.out.println("No es apto para un prestamo");
+        }
+    }
+
+    public void isGoodClimax(double humedad, double temperatura){
+        boolean isGood = (humedad >= 140 && humedad <=180) && (temperatura >= 24 && temperatura <= 34);
+
+        if(isGood) System.out.println("Es buen tiempo para correr");
+        else System.out.println("Es mal tiempo para correr");
+    }
+
+    public void ATM() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("¿Cuál es tu sueldo inicial? $");
+        double saldo = scanner.nextDouble();
+        double maxRetiroDiario = 300;
+        boolean continuar = true;
+
+        while (continuar) {
+            System.out.print("¿Cuánto necesitas retirar? $");
+            double montoRetiro = scanner.nextDouble();
+
+            if (montoRetiro < 20) {
+                System.out.println("El monto mínimo de retiro es $20.");
+            } else if (montoRetiro % 20 != 0) {
+                System.out.println("Solo puedes retirar múltiplos de $20.");
+            } else if (montoRetiro > maxRetiroDiario) {
+                System.out.println("Has superado el límite diario de retiro ($300).");
+            } else if (montoRetiro > saldo) {
+                System.out.println("No tienes suficiente saldo. Tu saldo actual es $" + saldo);
+            } else {
+                saldo -= montoRetiro;
+                maxRetiroDiario -= montoRetiro;
+                System.out.println("Retiro exitoso. Tu nuevo saldo es $" + saldo);
+                System.out.println("Límite de retiro restante hoy: $" + maxRetiroDiario);
+            }
+
+            System.out.print("¿Deseas seguir retirando? (S/N): ");
+            String respuesta = scanner.next().trim().toLowerCase();
+            if (respuesta.equals("n") || respuesta.equals("no")) {
+                continuar = false;
+            }
+        }
+
+        System.out.println("Gracias por usar el cajero automático. ¡Que tengas un buen día!");
+        scanner.close();
+    }
 }
