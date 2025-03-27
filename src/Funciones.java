@@ -1,3 +1,6 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 enum dias{
     LUNES,
     MARTES,
@@ -97,5 +100,79 @@ public class Funciones {
             }
             System.out.println();
         }
+    }
+
+    public void rectangulo(int alto, int ancho) {
+        for (int i = 1; i <= alto; i++) {
+            for (int j = 1; j <= ancho; j++) {
+                if (i == 1 || j == 1 || i == alto || j == ancho) {
+                    System.out.print("* ");
+                } else {
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public void doWhilenumeroMayor(){
+        Scanner sc = new Scanner(System.in);
+        int numero;
+        do {
+            System.out.print("Ingresa un numero mayor a 100: ");
+            numero  = sc.nextInt();
+        }while (numero <= 100);
+
+        System.out.println("El numero ingresado es mayor: "+numero);
+    }
+
+    public void doWhileImparPar(){
+        try{
+            Scanner sc = new Scanner(System.in);
+            int numero;
+            do {
+                System.out.print("Ingresa un numero: ");
+                numero = sc.nextInt();
+                if(numero % 2 ==0)System.out.println("Es par");
+                else System.out.println("Impar");
+            }while (numero != 0);
+        }catch (InputMismatchException e){
+            System.out.println("No es un numero o la el numero es demasiado grande");
+        }
+    }
+    
+    public void whileSuma(int numero){
+        int iteracion =1;
+        int suma = 0;
+        while(iteracion <= numero){
+            suma += iteracion;
+            iteracion++;
+        }
+        System.out.println("suma = " + suma);
+    }
+
+    public int whileFactorial(int factorial){
+        int resultado = factorial;
+        factorial--;
+        while(factorial >=1){
+            resultado *= factorial;
+            factorial--;
+        }
+        return resultado;
+    }
+
+    public void whileFactoerialScenner(){
+        int numero;
+        int factorial = 1;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Ingresar un numero: ");
+        numero = sc.nextInt();
+        int contador = 1;
+        while (contador <= numero){
+            factorial *= contador;
+            contador++;
+        }
+
+        System.out.println("factorial = " + factorial);
     }
 }
