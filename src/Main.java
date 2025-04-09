@@ -1,3 +1,5 @@
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,6 +22,15 @@ public class Main {
 //        func.verificarMayor(15,56);
 //        func.validarEdadPrestamo(18, 1000);
 //        func.isGoodClimax(155, 25);
-        func.ATM();
+//        func.ATM();
+
+        List<Integer> list = Arrays.asList(14,2,5,6,4,8,0,9);
+        List<String> listString = Arrays.asList("14","2","5","6","4","8","0","9");
+        int[] nums = {1,2,3,4,5,6,7,8,9,0};
+        for (int num : list) {
+            System.out.println("num = " + num);
+        }
+        list.stream().sorted().forEach(System.out::println);
+        listString.stream().mapToInt(Integer::parseInt).sorted().forEach(System.out::println);
     }
 }

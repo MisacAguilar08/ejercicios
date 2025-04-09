@@ -17,5 +17,7 @@ public class ArraysMain {
         for (int age : ages) {
             System.out.println("edad = " + age);
         }
+
+
     }
 }
