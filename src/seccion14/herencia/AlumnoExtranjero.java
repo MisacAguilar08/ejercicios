@@ -31,4 +31,22 @@ public class AlumnoExtranjero extends Alumno{
     public void setNotaIdiomas(double notaIdiomas) {
         this.notaIdiomas = notaIdiomas;
     }
+
+    @Override
+    public String saludar(){
+        String saludar = super.saludar();
+        return saludar + ", soy extranjero y vengo de "+ this.getPais();
+    }
+
+    @Override
+    public double calucularPromedio() {
+        return ((super.calucularPromedio()* 2) + notaIdiomas) / 3;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "pais='" + pais + '\'' +
+                ", notaIdiomas=" + notaIdiomas;
+    }
 }
