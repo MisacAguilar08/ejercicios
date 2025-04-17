@@ -37,4 +37,5 @@ public class HerenciaToStringMain {
     public static void imprimir(Persona persona){
         System.out.println(persona);
     }
+
 }
