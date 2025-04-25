@@ -9,7 +9,7 @@ package seccion16.modelo;
  *
  * @author user
  */
-public class Pagina extends Hoja{
+public class Pagina extends Hoja implements Imprimible{
 
 
     public Pagina(String contenido) {

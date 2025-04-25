@@ -5,22 +5,24 @@
 
 package seccion16.modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
  * @author user
  */
-public class Libro {
+public class Libro implements Imprimible{
     private List<Hoja> paginas;
-    private String autor;
+    private Persona autor;
     private String titulo;
     private Genero genero;
 
-    public Libro(String autor, String titulo, Genero genero) {
+    public Libro(Persona autor, String titulo, Genero genero) {
         this.autor = autor;
         this.titulo = titulo;
         this.genero = genero;
+        this.paginas = new ArrayList<>();
     }
 
     public Libro addPagina(Hoja pagina){
@@ -40,4 +42,7 @@ public class Libro {
 
         return sb.toString();
     }
+
+
+
 }
