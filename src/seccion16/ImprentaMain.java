@@ -30,9 +30,6 @@ public class ImprentaMain {
         for(Integer num: listaNumeros){
             System.out.println("num = " + num);
         }
-
-
-        Integer y = 8;
         
     }
 

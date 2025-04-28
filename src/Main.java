@@ -32,5 +32,19 @@ public class Main {
         }
         list.stream().sorted().forEach(System.out::println);
         listString.stream().mapToInt(Integer::parseInt).sorted().forEach(System.out::println);
+
+
+
+
+
+        System.out.println(isPalindromo("Anita lava la tina"));
+        
+        
+    }
+
+
+    public static Boolean isPalindromo(String palabra){
+        palabra = palabra.toLowerCase().replace(" ", "");
+        return new StringBuilder(palabra).reverse().toString().equals(palabra);
     }
 }
