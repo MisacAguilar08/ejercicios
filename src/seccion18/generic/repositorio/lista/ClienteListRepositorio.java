@@ -1,46 +1,23 @@
-package seccion17.repositorio;
+package seccion18.generic.repositorio.lista;
+
+import seccion18.generic.modelo.Cliente;
+import seccion18.generic.repositorio.AbstractListRepositorio;
+import seccion18.generic.repositorio.Direccion;
+import seccion18.generic.repositorio.Ordenamiento;
 
 import java.util.ArrayList;
 import java.util.List;
-import seccion17.modelo.Cliente;
 
-public class ClienteListRepositorio implements OrdenablePaginableCrudRepositorio{
+public class ClienteListRepositorio extends AbstractListRepositorio<Cliente> {
 
-    private final List<Cliente> dataSource;
-
-    public ClienteListRepositorio() {
-        this.dataSource=new ArrayList<>();
-    }
-
-    @Override
-    public List<Cliente> listar() {
-        return dataSource;
-    }
-
-    @Override
-    public Cliente getClienteId(Integer id) {
-        return dataSource.stream()
-                .filter(c -> c.getId()!= null && c.getId().equals(id))
-                .findFirst()
-                .orElse(null);
-    }
-
-    @Override
-    public void crear(Cliente cliente) {
-        this.dataSource.add(cliente);
-    }
 
     @Override
     public void editar(Cliente cliente) {
-        Cliente cli = this.getClienteId(cliente.getId());
+        Cliente cli = this.getById(cliente.getId());
         cli.setNombre(cliente.getNombre());
         cli.setApellido(cliente.getApellido());
     }
 
-    @Override
-    public void eliminar(Integer id) {
-        this.dataSource.remove(this.getClienteId(id));
-    }
 
     @Override
     public List<Cliente> listar(Ordenamiento campo, Direccion direccion) {
@@ -49,18 +26,13 @@ public class ClienteListRepositorio implements OrdenablePaginableCrudRepositorio
                 int resultado =0;
                 if(direccion == Direccion.ASC){
                     resultado = ordenar(campo, a, b);
-                } else if (direccion ==Direccion.DESC) {
+                } else if (direccion == Direccion.DESC) {
                     resultado = ordenar(campo, b, a);
                 }
                 return resultado;
             }
         );
         return listaOrdenada;
-    }
-
-    @Override
-    public List<Cliente> listar(int desde, int hasta) {
-        return dataSource.subList(desde,hasta);
     }
 
     public static int ordenar(Ordenamiento ordenamiento, Cliente a, Cliente b){

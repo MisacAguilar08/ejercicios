@@ -1,0 +1,4 @@
+package seccion17.repositorio;
+
+public interface OrdenablePaginableCrudRepositorio extends OrdenableRepositorio,PaginableRepositorio,CrudRepositorio{
+}
